@@ -33,13 +33,14 @@ Make sure to have python version 3 installed. This can be found [here](https://w
 
 Make sure to have the nltk package installed. This can be found [here](https://www.nltk.org/install.html)
 
-Run `py read_index.py` to pull up a help GUI of possible commmands.
+Run `py VSM.py` to pull up a help GUI of possible commmands.
+
+Required paramters are:
+> query file path
+
+> output file path
 
 Possible flags are:
-> --doc
-
-> --term
-
 > --write
 
 ## Implementation
@@ -53,74 +54,25 @@ Doc_Node stores number of distinct terms and number of total terms for a given d
 ### Made a few global variables
 term_Index is a hashmap that maps terms to term IDs
 
-doc_Index is a hashamp that maps document names to doc IDs
+doc_Index is a hashamp that maps doc IDs to Doc_Node's
+
+doc_Info is a hashmap that maps doc IDS to document names
 
 term_Info is a hashmap that maps term IDs to Term_Node's
 
 stop_words is a hashset of words
 
 ## Assignment Parts
-### Part 1
-Check repeated documents 
 
-New document ID
+### Vector Space Model
+Binary weights
 
-Check to be deleted
+Cosine Similarity
 
-Lowercase the words
-
-Remove underscores
-
-Process the text string
-
-For each token match
-
-Remove apostrophe
-
-Remove stop-words
-
-Stemming
-
-Add the token to our list.
-
-### Part 2
-Create tokens
-
-Match the unique term within the ID, and if the token is not in the term_index, then you would add
-
-Set up the term_info
-
-Add the to term_info
-
-Add distinct terms to doc_Index
-
-Add total words to doc_Index
-
-### Part 3
-The file read_index.py uses argparse library to help with the command parsing
+### Write to disk
+The file VSM.py uses argparse library to help with the command parsing
 
 Should the `--write` flag be found, enable writing to disk
 
-Should either the `--term` or `--doc` flag be found, run process_commands()
-
-### Part Extra Credit
-Within function write_to_disk()
-
-Build term_index.txt
-
-Save a byte_counter and offset, loop through each term_node in term_Index
-
-Loop through each posting_node in the posting_list from term_node
-
-Loop through each position in posting_node's list
-
-Build term_info.txt
-
-While in the term loop, write to file with the offset saved
-
-Build docids.txt
-
-Build termidis.txt
-
 ## Completion
-We attempted all parts of the extra credit, including stemming.
+We attempted the Vector Space Model with binary weights
