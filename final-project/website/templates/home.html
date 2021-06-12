@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project 172</title>
+    <title>Wikipedia Crawler </title>
 </head>
-<body>
+<body style="background-color:powderblue;">
+    <h1 style="text-align:center;">Wikipedia Crawler</h1>
     <button onclick="location.href= '{% url 'script' %}' " >Execute Script</button> <hr>
     {% if data %}
 
@@ -14,7 +15,9 @@
     <form action ="/external/" method = "post">
         {% csrf_token %}
         {{ form.as_p }}
-        Input Text: <input type="text" name="param" required><br><br>
+        Query: <input type="text" name="param" required><br><br>
+        Urls: <input type="text" name="param" required><br><br>
+        Pages: <input type="text" name="param"><br><br>
         {{data_external}}<br><br>{{data1}}<br><br>
         <input type="submit" value="Execute External Python Script">
     </form>
