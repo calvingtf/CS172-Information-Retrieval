@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 from wikipedia_crawler import WikipediaCrawler
 
-parser = argparse.ArgumentParser(description='Wikipedia Crawler and Search')
+parser = argparse.ArgumentParser(description='Wikipedia Crawler')
 parser.add_argument('depth', type=int, action="store", nargs = 1, help='a number for how deep the crawler should go')
 parser.add_argument('--url', dest="source", help='starting url to crawl (if not given, sources.txt is used)',
                     type=str, default=None)

@@ -128,7 +128,7 @@ class WikipediaCrawler:
     def crawl(self, initial_link, depth=0):
     
         # Check for depth
-        if depth <= self.max_depth:
+        if depth <= self.max_depth or self.max_depth == -1:
             
             # Check for pages crawled (-1 symbolizes no limit)
             if self.pages_crawled < self.max_pages or self.max_pages == -1:
