@@ -4,8 +4,6 @@ import argparse
 import glob
 import os
 
-from tqdm import tqdm
-
 from wikipedia_crawler import WikipediaCrawler
 
 parser = argparse.ArgumentParser(description='Wikipedia Crawler')
@@ -32,7 +30,7 @@ if args.clean is True:
 if args.source is None:
     sources = []
     with open("sources.txt", "r", encoding='utf-8') as source_file:
-        for line in tqdm(source_file):
+        for line in source_file:
             sources.append(line.strip("\n"))
 else:
     sources = [args.source]
