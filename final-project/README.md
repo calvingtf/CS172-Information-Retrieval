@@ -66,10 +66,21 @@ Depth - This number will determine how nested the crawler should go.
 Help - Will display the help message with descriptions on all the flags
 
 URL - Starting URL to crawl from. If this is not provided, sources.txt will automatically be used. Sources.txt can contain a URL on each new line, and the crawler will crawl through each.
+> If `https://en.wikipedia.org/wiki/Web_crawler` is given, that will be the starting URL
+
+> If nothing is given, sources.txt will be used to supply the URLs
 
 Directory - This will determine the name for the folder where the .json files are stored in. If none is given, the name `data` is automatically set.
+> If `sample_data` is given, then the folder will be named `sample_data`
+
+> If none is given, then the folder will be named `data`
 
 Pages - This will set the total number of pages to crawl. If none is provided, -1 will be set and there will be no maximum.
+> If 0 is given, no pages will be crawled
+
+> If 10 is given, 10 pages will be crawled
+
+> If -1 is given, there will be no limit to how many pages is crawled
 
 Clean - This is a flag that does not take in a value. If this flag is provided, the crawler will first clean the folder marked for the .json files before repopulating it.
 
