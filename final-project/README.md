@@ -11,7 +11,7 @@ ______________________________________________________
 ## Collaboration Details
 
 
-### Part 1 - Crawler
+## Part 1 - Crawler
 The overview of our system, 
 (A) Architecture:
 
@@ -26,7 +26,7 @@ Features -
 
 (C)
 
-#### Crawler Set up Instructions
+### Crawler Set up Instructions
 
 Step 1: Clone the repository.
 
@@ -51,7 +51,7 @@ Possible flags are:
 
 > --clean
 
-#### How to run the crawler
+### How to run the crawler
 The main command to run is `py run.py`
 
 Depth - This number will determine how nested the crawler should go.
@@ -73,7 +73,7 @@ Pages - This will set the total number of pages to crawl. If none is provided, -
 
 Clean - This is a flag that does not take in a value. If this flag is provided, the crawler will first clean the folder marked for the .json files before repopulating it.
 
-### Part 2 - Indexer
+## Part 2 - Indexer
 
 
 Note: 
@@ -83,5 +83,5 @@ Requirements
 
 
 
-#### Steps to view the website
+### Steps to view the website
 
