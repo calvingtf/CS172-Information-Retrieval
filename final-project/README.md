@@ -38,7 +38,7 @@ Step 2: Check Python Version. More information can be found [here](https://www.p
 
 Step 3: Install the packages. Make sure you are in the folder while doing so
 
-> `$pip install -r requirements.txt`
+> `$pip3 install -r requirements.txt`
 
 Step 4: Run the crawler with a specified depth level by typing `py run.py [#]`
 Run `py run.py -h` to pull up a help GUI of possible commmands.
@@ -103,7 +103,7 @@ Step 2: Check Python Version. More information can be found [here](https://www.p
 
 Step 3: Install the packages. Make sure you are in the folder while doing so
 
-> `$pip install -r requirements.txt`
+> `$pip3 install -r requirements.txt`
 
 Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip the files
 
