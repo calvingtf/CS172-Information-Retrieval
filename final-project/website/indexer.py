@@ -19,11 +19,11 @@ def web_search(url, query, pages=50, depth=10):
     es = Elasticsearch()
     
     # Making the data folder
-    if not os.path.exists("../data"):
-        os.mkdir("../data" + "/")
+    if not os.path.exists("data"):
+        os.mkdir("data" + "/")
 
     # If it is web_search, always --clean and create a new data folder
-    files = glob.glob("../data" + "/*")
+    files = glob.glob("data" + "/*")
     for f in files:
         os.remove(f)
     
@@ -33,7 +33,7 @@ def web_search(url, query, pages=50, depth=10):
     
     # Crawl
     sources = [url]
-    crawler = WikipediaCrawler("../data", depth, pages)
+    crawler = WikipediaCrawler("data", depth, pages)
     for source_url in sources:
         pages = crawler.crawl(source_url)
     
@@ -45,7 +45,7 @@ def web_search(url, query, pages=50, depth=10):
     # Fill in the index
     id_counter = 1
     path = os.getcwd()    
-    directory = "../data"
+    directory = "data"
 
     for filename in os.listdir(directory):
         if filename.endswith(".json"):

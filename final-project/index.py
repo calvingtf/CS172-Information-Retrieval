@@ -32,6 +32,8 @@ if args.source is None:
     with open("sources.txt", "r", encoding='utf-8') as source_file:
         for line in source_file:
             sources.append(line.strip("\n"))
+else:
+    sources = [args.source]
 
 # Crawl
 crawler = WikipediaCrawler(args.directory, args.depth, args.pages)
@@ -39,8 +41,6 @@ for source_url in sources:
     pages = crawler.crawl(source_url)
     
 print(search(args.query))
-    
-    
     
 # Documentation: https://docs.python.org/3/library/argparse.html
         
