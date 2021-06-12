@@ -1,6 +1,7 @@
 
 # Main folder
 .DS_Store
+.idea
 
 # Assignment 1
 /assignment-1---tokenization/__MACOSX
