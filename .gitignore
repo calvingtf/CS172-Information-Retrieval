@@ -23,6 +23,7 @@
 /assignment-2---retrieval/term_info.txt
 
 # Final Project
-/final-project/crawler-4/__pycache__
-/final-project/crawler-4/data/
+/final-project/__pycache__
+/final-project/data/
+/final-project/elasticsearch-7.13.1/
 

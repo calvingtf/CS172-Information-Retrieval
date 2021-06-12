@@ -20,8 +20,20 @@ class WikipediaPage:
         :param directory:
         :return:
         """
+        
+        # File name can't contain spaces, / \ : * ? " < > |
         file_name = self.title.replace(" ", "_")
-        with open(directory + "/" + file_name + '.json', 'w+', encoding='utf-8') as file:
+        file_name = file_name.replace("/", "_")
+        file_name = file_name.replace("\\", "_")
+        file_name = file_name.replace(":", "_")
+        file_name = file_name.replace("*", "_")
+        file_name = file_name.replace("?", "_")
+        file_name = file_name.replace('"', "_")
+        file_name = file_name.replace("<", "_")
+        file_name = file_name.replace(">", "_")
+        file_name = file_name.replace("|", "_")
+        
+        with open(directory + "/" + file_name + '.json', 'w', encoding='utf-8') as file:
             fields = self.__dict__
             json.dump(fields, file, indent=4, ensure_ascii=False)
 
