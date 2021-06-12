@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Wikipedia Crawler </title>
 </head>
 <body style="background-color:powderblue;">
     <h1 style="text-align:center;">Wikipedia Crawler</h1>
-    <button onclick="location.href= '{% url 'script' %}' " >Execute Script</button> <hr>
-    {% if data %}
-
-    {{data | safe}}
-
-    {% endif %}
+    <div class="jumbotron">
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1"></span>
     <form action ="/external/" method = "post">
         {% csrf_token %}
         {{ form.as_p }}
-        Query: <input type="text" name="param" required><br><br>
-        Urls: <input type="text" name="param" required><br><br>
-        Pages: <input type="text" name="param"><br><br>
+        Query: <input type="text" class="form-control" name="param"  placeholder="Please type the query" aria-describedby="sizing-addon1" requried><br><br>
+        URL: <input type="text" class="form-control" name="param"  placeholder="Please type the URL" aria-describedby="sizing-addon1" requried><br><br>
+        Pages: <input type="text" class="form-control" name="param"  placeholder="Please type the page (optional)" aria-describedby="sizing-addon1" ><br><br>
         {{data_external}}<br><br>{{data1}}<br><br>
-        <input type="submit" value="Execute External Python Script">
+        <input type="submit" value="Find!!">
     </form>
+    </div>
+    </div>
 </body>
 </html>
