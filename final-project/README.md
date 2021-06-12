@@ -44,8 +44,11 @@ Step 4: Run the crawler with a specified depth level by typing `py run.py [#]`
 Run `py run.py -h` to pull up a help GUI of possible commmands.
 Possible flags are:
 > --url
+
 > --dir
+
 > --pages
+
 > --clean
 
 #### How to run the crawler
@@ -53,8 +56,11 @@ The main command to run is `py run.py`
 
 Depth - This number will determine how nested the crawler should go.
 > If 0 is given, only the starting pages will be crawled
+
 > If 1 is given, only the starting pages and the links on those pages will be crawled.
+
 > If 2 is given, only the starting pages and 2 links in will be crawled.
+
 > If -1 is given, there will be no maximum depth. WARNING: This is highly discouraged
 
 Help - Will display the help message with descriptions on all the flags
