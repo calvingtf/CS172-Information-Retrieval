@@ -30,15 +30,15 @@ Features -
 
 Step 1: Clone the repository.
 
-> $git clone <repository url>
+> `$git clone <repository url>`
 
 Step 2: Check Python Version. More information can be found [here](https://www.python.org/download/releases/3.0/)
 
-> $python --version
+> `$python --version`
 
 Step 3: Install the packages.
 
-> $pip install -r requirements.txt
+> `$pip install -r requirements.txt`
 
 Step 4: Run the crawler with a specified depth level by typing `py run.py [#]`
 Run `py run.py -h` to pull up a help GUI of possible commmands.
@@ -95,27 +95,27 @@ Requirements
 
 Step 1: Clone the repository.
 
-> $git clone <repository url>
+> `$git clone <repository url>`
 
 Step 2: Check Python Version. More information can be found [here](https://www.python.org/download/releases/3.0/)
 
-> $python --version
+> `$python --version`
 
 Step 3: Install the packages.
 
-> $pip install -r requirements.txt
+> `$pip install -r requirements.txt`
 
 Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip the files
 
 Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and start the elasticsearch server
-> bin/elasticsearch (or `bin/elasticsearch.bat` on windows)
+> `$bin/elasticsearch` (or `bin/elasticsearch.bat` on windows)
 
 Example code:
-> `elasticsearch-7.13.1/bin/elasticsearch.bat`
+> `$elasticsearch-7.13.1/bin/elasticsearch.bat`
 
 Step 6: On the original terminal and check if your elasticsearch server is running.
 More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
-> `Invoke-RestMethod http://localhost:9200`
+> `$Invoke-RestMethod http://localhost:9200`
 
 Step 7: NEEDS TO BE REWRITTEN Run the crawler with the URL `https://en.wikipedia.org/wiki/Genshin_Impact` with depth 1
 
