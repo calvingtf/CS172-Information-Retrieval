@@ -86,11 +86,38 @@ Clean - This is a flag that does not take in a value. If this flag is provided, 
 
 ## Part 2 - Indexer
 
-
 Note: 
 
 
 Requirements
+
+### Indexer set up instructions
+
+Step 1: Clone the repository.
+
+> $git clone <repository url>
+
+Step 2: Check Python Version. More information can be found [here](https://www.python.org/download/releases/3.0/)
+
+> $python --version
+
+Step 3: Install the packages.
+
+> $pip install -r requirements.txt
+
+Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip the files
+
+Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and run
+`bin/elasticsearch` or (`bin/elasticsearch.bat`) on windows
+
+Step 6: On the original terminal, run `Invoke-RestMethod http://localhost:9200` to check if your elasticsearch server is running.
+More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
+
+Step 7: NEEDS TO BE REWRITTEN Run the crawler with the URL `https://en.wikipedia.org/wiki/Genshin_Impact` with depth 1
+
+Then run `py index.py`
+
+### How to run the indexer
 
 
 

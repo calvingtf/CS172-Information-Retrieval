@@ -17,13 +17,13 @@ id_counter = 1
 path = os.getcwd()    
 directory = path + "/data"
 
-# for filename in os.listdir(directory):
-    # if filename.endswith(".json"):
-        # filepath = os.path.join(directory, filename)
-        # with open(filepath, "rb") as file:
-            # body = file.read()
-            # es.index(index = "wikipedia", id = id_counter, body = body)
-            # id_counter = id_counter + 1
+for filename in os.listdir(directory):
+    if filename.endswith(".json"):
+        filepath = os.path.join(directory, filename)
+        with open(filepath, "rb") as file:
+            body = file.read()
+            es.index(index = "wikipedia", id = id_counter, body = body)
+            id_counter = id_counter + 1
 
 body = {
     "from":0,
