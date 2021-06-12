@@ -107,8 +107,8 @@ Step 3: Install the packages.
 
 Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip the files
 
-Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and run
-`bin/elasticsearch` or (`bin/elasticsearch.bat`) on windows
+Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and start the elasticsearch server
+> bin/elasticsearch (or `bin/elasticsearch.bat` on windows)
 
 Step 6: On the original terminal, run `Invoke-RestMethod http://localhost:9200` to check if your elasticsearch server is running.
 More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
