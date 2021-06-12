@@ -8,37 +8,33 @@ from bs4 import BeautifulSoup
 
 from wikipedia_page import WikipediaPage
 
-
+# Class for the crawler
 class WikipediaCrawler:
-    def __init__(self, directory, max_depth):
+
+    # Initialization
+    def __init__(self, directory, max_depth, max_pages):
         self.wiki_page_link_pattern = re.compile("/wiki/[\w]+$")
         self.category_link_pattern = re.compile("/wiki/Category:[\w]+$")
 
         self.ssl_context = ssl.create_default_context()
         self.max_depth = max_depth
+        self.max_pages = max_pages
+        self.pages_crawled = 0
         self.store_after_parsing = True
         self.directory = directory
         self.crawled_pages = set()
         self.valid_origins = ["https://en.wikipedia.org"]
 
+    # Checks to see if the url is added already
     def register_page(self, url):
-        """
-        register a page in the local registry
-        :param url:
-        :return:
-        """
         if not url in self.crawled_pages:
             self.crawled_pages.add(url)
             return True
         else:
             return False
 
+    # Get the html content of a given url
     def download_page(self, url):
-        """
-        Returns HTML Content of page
-        :param url:
-        :return:
-        """
         try:
             if self.register_page(url):
                 print("Downloading page: ", url)
@@ -47,13 +43,8 @@ class WikipediaCrawler:
             print("Failed to download page", ex)
         return None
 
+    # Gets all the links from a category
     def parse_category(self, url, depth):
-        """
-        Collects the links from a category and downloads/parses them
-        :param url:
-        :param depth:
-        :return:
-        """
         page_content = self.download_page(url)
         if page_content is None:
             return []
@@ -69,12 +60,8 @@ class WikipediaCrawler:
 
         return pages
 
+    # Extracts the page
     def parse_page(self, url, depth=0):
-        """
-        Downloads and parses a Wikipedia page and stores it if required
-        :param url:
-        :return:
-        """
         print("Parsing page: ", url)
         page_content = self.download_page(url)
         if page_content is None:
@@ -84,7 +71,7 @@ class WikipediaCrawler:
         pages = []
         page = WikipediaPage(url)
 
-        # extract wikipedia links
+        # Extract wikipedia links
         links = soup.find_all('a')
         for link in links:
             link_url = link.get('href')
@@ -94,7 +81,7 @@ class WikipediaCrawler:
                     page.links.append(base_url + link_url)
                     pages.extend(self.crawl(base_url + link_url, depth + 1))
 
-        # extract paragraphs
+        # Extract paragraphs
         text_container = soup.find('div', {'class': 'mw-parser-output'})
         zero_paragaph = {"title": "", "text": ""}
 
@@ -109,7 +96,7 @@ class WikipediaCrawler:
 
         page.paragraphs = list(filter(lambda x: x["text"] != "", page.paragraphs))
 
-        # extract graphics
+        # Extract graphics
         image_container = soup.find_all('div', {'class': 'thumbinner'})
         zero_graphic = {"url": "", "caption": ""}
 
@@ -137,12 +124,20 @@ class WikipediaCrawler:
         pages.append(page)
         return pages
 
+    # Crawl based on a starting page and given depth
     def crawl(self, initial_link, depth=0):
+    
+        # Check for depth
         if depth <= self.max_depth:
-            base_url = '{uri.scheme}://{uri.netloc}'.format(uri=urlparse(initial_link))
-            if base_url in self.valid_origins:
-                if self.category_link_pattern.match(initial_link[len(base_url):]):
-                    return self.parse_category(initial_link, depth)
-                elif self.wiki_page_link_pattern.match(initial_link[len(base_url):]):
-                    return self.parse_page(initial_link, depth)
+            
+            # Check for pages crawled (-1 symbolizes no limit)
+            if self.pages_crawled < self.max_pages or self.max_pages == -1:
+            
+                self.pages_crawled = self.pages_crawled + 1
+                base_url = '{uri.scheme}://{uri.netloc}'.format(uri=urlparse(initial_link))
+                if base_url in self.valid_origins:
+                    if self.category_link_pattern.match(initial_link[len(base_url):]):
+                        return self.parse_category(initial_link, depth)
+                    elif self.wiki_page_link_pattern.match(initial_link[len(base_url):]):
+                        return self.parse_page(initial_link, depth)
         return []

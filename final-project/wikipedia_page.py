@@ -1,11 +1,10 @@
 import json
 
-
+# Class for one WikipediaPage
 class WikipediaPage:
+
+    # Initialization
     def __init__(self, url):
-        """
-        a wrapper for wikipedia page content
-        """
         self.url = url
         self.title = []
         self.html = ""
@@ -14,12 +13,9 @@ class WikipediaPage:
         self.paragraphs = []
         self.links = []
 
+    # Writes to a json file
     def store(self, directory):
-        """
-        Save the page content in JSON format
-        :param directory:
-        :return:
-        """
+        
         
         # File name can't contain spaces, / \ : * ? " < > |
         file_name = self.title.replace(" ", "_")
@@ -34,9 +30,8 @@ class WikipediaPage:
         file_name = file_name.replace("|", "_")
         
         with open(directory + "/" + file_name + '.json', 'w', encoding='utf-8') as file:
-            fields = self.__dict__
-            json.dump(fields, file, indent=4, ensure_ascii=False)
-
+            body = self.__dict__
+            json.dump(body, file, indent=4, ensure_ascii=False)
 
 def extract_wiki_page(url):
     return url.split("/")[-1]
