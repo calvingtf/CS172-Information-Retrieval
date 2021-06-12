@@ -112,9 +112,9 @@ Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsea
 
 > Example code: `$elasticsearch-7.13.1/bin/elasticsearch.bat`
 
-Step 6: On the original terminal and check if your elasticsearch server is running.
+Step 6: On the original terminal and check if your elasticsearch server is running. If you receive a response and not an error, it is working
 More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
-> `$Invoke-RestMethod http://localhost:9200`
+> `$curl http://localhost:9200/` (or `$Invoke-RestMethod http://localhost:9200` on windows)
 
 Step 7: NEEDS TO BE REWRITTEN Run the crawler with the URL `https://en.wikipedia.org/wiki/Genshin_Impact` with depth 1
 

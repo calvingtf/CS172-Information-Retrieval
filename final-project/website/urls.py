@@ -19,7 +19,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'admin/', admin.site.urls),
     url(r'^$', views.button),
     url(r'^output', views.output, name="script"),
     url(r'^external',views.external),
