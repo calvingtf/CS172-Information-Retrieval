@@ -13,9 +13,10 @@
     <form action ="/external/" method = "post">
         {% csrf_token %}
         {{ form.as_p }}
-        Query: <input type="text" class="form-control" name="param"  placeholder="Please type the query" aria-describedby="sizing-addon1" requried><br><br>
-        URL: <input type="text" class="form-control" name="param"  placeholder="Please type the URL" aria-describedby="sizing-addon1" requried><br><br>
-        Pages: <input type="text" class="form-control" name="param"  placeholder="Please type the page (optional)" aria-describedby="sizing-addon1" ><br><br>
+        Query: <input type="text" class="form-control" name="input_query"  placeholder="Please type the query" aria-describedby="sizing-addon1" requried><br><br>
+        URL: <input type="text" class="form-control" name="input_url"  placeholder="Please type the URL" aria-describedby="sizing-addon1" requried><br><br>
+        Pages: <input type="text" class="form-control" name="input_pages"  placeholder="Please type the page (optional)" aria-describedby="sizing-addon1" ><br><br>
+		Depth: <input type="text" class="form-control" name="input_depth"  placeholder="Please type the depth (optional)" aria-describedby="sizing-addon1" ><br><br>
         {{data_external}}<br><br>{{data1}}<br><br>
         <input type="submit" value="Find!!">
     </form>

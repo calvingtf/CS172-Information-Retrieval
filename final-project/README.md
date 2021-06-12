@@ -114,7 +114,7 @@ Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsea
 
 Step 6: On the original terminal and check if your elasticsearch server is running. If you receive a response and not an error, it is working
 More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
-> `$curl http://localhost:9200/` (or `$Invoke-RestMethod http://localhost:9200` on windows)
+> `$curl http://localhost:9200/`
 
 Step 7: NEEDS TO BE REWRITTEN Run the crawler with the URL `https://en.wikipedia.org/wiki/Genshin_Impact` with depth 1
 
@@ -124,5 +124,36 @@ Then run `py index.py`
 
 
 
-### Steps to view the website
+### Part 3 - Website
+
+### Webste set up instructions
+
+Step 1: Clone the repository.
+
+> `$git clone <repository url>`
+
+Step 2: Check Python Version. More information can be found [here](https://www.python.org/download/releases/3.0/)
+
+> `$python --version`
+
+Step 3: Install the packages. Make sure you are in the folder while doing so
+
+> `$pip3 install -r requirements.txt`
+
+Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip the files
+
+Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and start the elasticsearch server
+> `$bin/elasticsearch` (or `bin/elasticsearch.bat` on windows)
+
+> Example code: `$elasticsearch-7.13.1/bin/elasticsearch.bat`
+
+Step 6: On the original terminal and check if your elasticsearch server is running. If you receive a response and not an error, it is working
+More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
+> `$curl http://localhost:9200/`
+
+Step 7: NEEDS TO BE REWRITTEN Run the crawler with the URL `https://en.wikipedia.org/wiki/Genshin_Impact` with depth 1
+
+Then run `py index.py`
+
+### How to run the website
 

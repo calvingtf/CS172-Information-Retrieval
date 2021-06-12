@@ -1,49 +1,48 @@
-from elasticsearch import Elasticsearch
+import argparse
+import glob
 import os
-import sys
-import json
 
-# Elastic search configuation
-
-es = Elasticsearch(HOST="http://localhost", PORT=9200)
-es = Elasticsearch()
-
-# es.indices.delete(index="wikipedia")
-
-if not (es.indices.exists(index="wikipedia")):
-    es.indices.create(index="wikipedia")
-
-id_counter = 1
-path = os.getcwd()    
-directory = path + "/data"
-
-for filename in os.listdir(directory):
-    if filename.endswith(".json"):
-        filepath = os.path.join(directory, filename)
-        with open(filepath, "rb") as file:
-            body = file.read()
-            es.index(index = "wikipedia", id = id_counter, body = body)
-            id_counter = id_counter + 1
-
-body = {
-    "from":0,
-    "size":5,
-    "query": {
-        "match": {
-            "paragraphs.text" : "Adolf Hitler"
-        }
-    }
-}
-
-result = es.search(index = "wikipedia", body = body)
-for hit in result['hits']['hits']:
-    print(hit["_source"]["title"], " with score of: ", hit["_score"])
-    
-
-
+from indexer import *
+from wikipedia_crawler import WikipediaCrawler
 
             
+parser = argparse.ArgumentParser(description='Wikipedia Searcher')
+parser.add_argument('query', type=str, action="store", help='a string for what to search')
+parser.add_argument('--depth', dest="depth", type=int, default=10, help='a number for how deep the crawler should go')
+parser.add_argument('--url', dest="source", type=str, default=None, help='starting url to crawl (if not given, sources.txt is used)')
+parser.add_argument('--dir', dest="directory", type=str, default="data", help='folder to store pages')
+parser.add_argument('--pages', dest="pages", type=int, default = 50, help='total number of pages to crawl',)
+parser.add_argument('--clean', action="store_true", dest="clean", help='cleans the folder of all .json files before crawling')
+args = parser.parse_args()
+
+path = os.getcwd()
+newpath = path + "/" + str(args.directory)
+
+# Making the data folder
+if not os.path.exists(newpath):
+    os.mkdir(args.directory + "/")
+ 
+if args.clean is True:
+    files = glob.glob(args.directory + "/*")
+    for f in files:
+        os.remove(f)
         
+if args.source is None:
+    sources = []
+    with open("sources.txt", "r", encoding='utf-8') as source_file:
+        for line in source_file:
+            sources.append(line.strip("\n"))
+
+# Crawl
+crawler = WikipediaCrawler(args.directory, args.depth, args.pages)
+for source_url in sources:
+    pages = crawler.crawl(source_url)
+    
+print(search(args.query))
+    
+    
+    
+# Documentation: https://docs.python.org/3/library/argparse.html
         
 
 
