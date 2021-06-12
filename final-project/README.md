@@ -1,6 +1,6 @@
-###CS172 Final Project
+### CS172 Final Project
 
-#Instructions on how to run our Project
+# Instructions on how to run our Project
 
 1.
 
