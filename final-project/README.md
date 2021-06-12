@@ -1,15 +1,49 @@
-### CS172 Final Project
+# CS172 - FINAL PROJECT 
 
-# Instructions on how to run our Project
+## Team members
+
+- Aden Ghadimi
+- Calvin TszFung Ng
+- Kevin Ni
+______________________________________________________
+
+
+
+
+
+## Collaboration Details
+
+
+### Part 1 - Crawler
+The overview of our system, 
+(A) Architecture:
+
+
+Features - 
+
+
+
+
+(B)
+
+
+(C)
+
+#### Crawler Set up Instructions
 
 1.
 
-2.
+#### How to run the crawler
 
-3.
+### Part 2 - Indexer
 
-4.
 
-5.
+Note: 
 
-6.
+
+Requirements
+
+
+
+#### Steps to view the website
+
