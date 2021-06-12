@@ -110,8 +110,7 @@ Step 4: Go to https://www.elastic.co/downloads/elasticsearch. Download and unzip
 Step 5: Open a seperate terminal to run your elasticsearch. Go to the elasticsearch folder and start the elasticsearch server
 > `$bin/elasticsearch` (or `bin/elasticsearch.bat` on windows)
 
-Example code:
-> `$elasticsearch-7.13.1/bin/elasticsearch.bat`
+> Example code: `$elasticsearch-7.13.1/bin/elasticsearch.bat`
 
 Step 6: On the original terminal and check if your elasticsearch server is running.
 More information can be found [here](https://www.elastic.co/downloads/elasticsearch)
