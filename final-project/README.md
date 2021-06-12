@@ -36,7 +36,7 @@ Step 2: Check Python Version. More information can be found [here](https://www.p
 
 > `$python --version`
 
-Step 3: Install the packages.
+Step 3: Install the packages. Make sure you are in the folder while doing so
 
 > `$pip install -r requirements.txt`
 
@@ -101,7 +101,7 @@ Step 2: Check Python Version. More information can be found [here](https://www.p
 
 > `$python --version`
 
-Step 3: Install the packages.
+Step 3: Install the packages. Make sure you are in the folder while doing so
 
 > `$pip install -r requirements.txt`
 
