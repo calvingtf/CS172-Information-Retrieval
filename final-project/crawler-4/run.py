@@ -16,6 +16,15 @@ parser.add_argument('--clean', dest="clean", help='removes all stored pages befo
 parser.add_argument('--dir', dest="directory", help='directory to store pages', type=str, default="data")
 args = parser.parse_args()
 
+
+# Making the data folder
+path = os.getcwd()
+newpath = path + "/" + str(args.directory)
+
+if not os.path.exists(newpath):
+    os.mkdir(newpath)
+
+
 if args.clean:
     files = glob.glob(args.directory + "/*")
     for f in files:
